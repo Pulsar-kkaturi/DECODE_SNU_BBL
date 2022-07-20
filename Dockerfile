@@ -26,7 +26,8 @@ COPY --chown=bbl:bbl . Decode_BBL/.
 ENV PYTHONPATH "${PYTHONPATH}:/home/jeong/Decode_BBL"
 RUN sudo chown -R bbl:bbl /opt/conda
 # RUN conda env create -f Decode_BBL/environment.yml
-# RUN sudo rm /opt/conda/envs/decode_env/lib/python3.8/site-packages/decode/utils/frames_io.py
-# COPY ETC/frames_io.py /opt/conda/envs/decode_env/lib/python3.8/site-packages/decode/utils/.
+RUN conda create -y -n decode_env -c turagalab -c pytorch -c conda-forge decode=0.10.0 jupyterlab ipykernel
+RUN sudo rm /opt/conda/envs/decode_env/lib/python3.8/site-packages/decode/utils/frames_io.py
+COPY ETC/frames_io.py /opt/conda/envs/decode_env/lib/python3.8/site-packages/decode/utils/.
 RUN conda init
-CMD ["bash", "Decode_BBL/decode_install.sh"]
+# CMD ["bash", "Decode_BBL/decode_install.sh"]
