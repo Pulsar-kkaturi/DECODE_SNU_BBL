@@ -7,7 +7,7 @@ from typing import Union, Tuple, Callable, Iterable
 
 from tqdm import tqdm
 
-def mod_load_tif(path: (str, pathlib.Path)) -> torch.Tensor:
+def load_tif(path: (str, pathlib.Path)) -> torch.Tensor:
     """
     Reads the tif(f) files. When a folder is specified, potentially multiple files are loaded.
     Which are stacked into a new first axis.
@@ -49,7 +49,7 @@ def mod_load_tif(path: (str, pathlib.Path)) -> torch.Tensor:
 
     return frames
 
-def load_tif(path: (str, pathlib.Path), multifile=True) -> torch.Tensor:
+def load_tif_org(path: (str, pathlib.Path), multifile=True) -> torch.Tensor:
     """
     Reads the tif(f) files. When a folder is specified, potentially multiple files are loaded.
     Which are stacked into a new first axis.
