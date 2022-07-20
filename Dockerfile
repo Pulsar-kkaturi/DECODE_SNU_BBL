@@ -1,4 +1,5 @@
-FROM pytorch/pytorch:latest
+FROM continuumio/anaconda3
+# FROM pytorch/pytorch:latest
 
 # Linux Environment Setting
 RUN apt-get update && apt-get -y install \
@@ -20,9 +21,9 @@ WORKDIR /home/bbl
 
 # Python Setting
 ENV PATH="/home/bbl/.local/bin:${PATH}"
-RUN mkdir decode_bbl
-COPY --chown=bbl:bbl . decode_bbl/.
-ENV PYTHONPATH "${PYTHONPATH}:/home/jeong/decode_bbl"
+RUN mkdir Decode_BBL
+COPY --chown=bbl:bbl . Decode_BBL/.
+ENV PYTHONPATH "${PYTHONPATH}:/home/jeong/Decode_BBL"
 RUN sudo chown -R bbl:bbl /opt/conda
-# RUN conda env create -f LCT_LungSEG/environment.yml
+# RUN conda env create -f Decode_BBL/environment.yml
 RUN conda init
