@@ -1,1 +1,1 @@
-docker build -t jeong-decode:jjh . 
+docker build -t jeong-bbl-decode:jjh . 

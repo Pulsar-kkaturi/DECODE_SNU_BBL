@@ -26,4 +26,6 @@ COPY --chown=bbl:bbl . Decode_BBL/.
 ENV PYTHONPATH "${PYTHONPATH}:/home/jeong/Decode_BBL"
 RUN sudo chown -R bbl:bbl /opt/conda
 RUN conda env create -f Decode_BBL/environment.yml
+RUN sudo rm /opt/conda/envs/decode_env/lib/python3.8/site-packages/decode/utils/frames_io.py
+COPY ETC/frames_io.py /opt/conda/envs/decode_env/lib/python3.8/site-packages/decode/utils/.
 RUN conda init
