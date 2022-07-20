@@ -25,5 +25,5 @@ RUN mkdir Decode_BBL
 COPY --chown=bbl:bbl . Decode_BBL/.
 ENV PYTHONPATH "${PYTHONPATH}:/home/jeong/Decode_BBL"
 RUN sudo chown -R bbl:bbl /opt/conda
-# RUN conda env create -f Decode_BBL/environment.yml
+RUN conda env create -f Decode_BBL/environment.yml
 RUN conda init
