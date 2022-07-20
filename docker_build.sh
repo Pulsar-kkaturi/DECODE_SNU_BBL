@@ -1,0 +1,1 @@
+docker build -t jeong-decode:jjh . 
